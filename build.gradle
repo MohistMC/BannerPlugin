@@ -1,0 +1,48 @@
+plugins {
+	id 'fabric-loom' version '1.3-SNAPSHOT'
+	id 'maven-publish'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+	archivesName = project.archives_base_name
+}
+
+repositories {
+	maven {
+		name = 'ParchmentMC'
+		url = 'https://maven.parchmentmc.org'
+	}
+}
+
+loom {
+	serverOnlyMinecraftJar()
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	// We only use mojang mapping just like paper does, it will auto remapped to intermediately names
+	// you can use NMS without reflections,just directly use it
+	mappings loom.layered() {
+		officialMojangMappings()
+		parchment("org.parchmentmc.data:parchment-1.20.1:2023.06.26@zip")
+	}
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	compileOnly(fileTree("lib/banner-1.20.1-204-dev.jar"))
+
+	// Fabric API. This is technically optional, but you probably want it anyway.
+	// You can use fabric api in your bukkit plugins to call Fabric Events or use Fabric API to handle modded things
+	// And more, you can depends on other fabric mods so that your bukkit plugins can handle it
+	// modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 17
+}
+
+java {
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
+}

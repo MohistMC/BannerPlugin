@@ -1,0 +1,5 @@
+name: BannerPlugin
+main: com.mohistmc.banner.plugin.Main
+version: 0.1
+author: MohistMC
+api-version: '1.20'

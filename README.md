@@ -1,8 +1,10 @@
-# Fabric Example Mod
+# Banner Example Plugin
 
-## Setup
+## Introduction
+1.A Banner example plugin that you can directly use NMS using Fabric loom to remap to intermediately names
+2.And you can decide whether using fabric api or not
+3.And you can use Banner's api for bukkit plugin
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
 
 ## License
 

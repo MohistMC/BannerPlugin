@@ -30,7 +30,7 @@ dependencies {
 		parchment("org.parchmentmc.data:parchment-1.20.1:2023.06.26@zip")
 	}
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-	compileOnly(fileTree("lib/banner-1.20.1-204-dev.jar"))
+	compileOnly(fileTree("lib/banner-1.20.1-260-dev.jar"))
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	// You can use fabric api in your bukkit plugins to call Fabric Events or use Fabric API to handle modded things
